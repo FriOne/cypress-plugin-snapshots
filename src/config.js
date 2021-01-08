@@ -86,6 +86,7 @@ function getScreenshotConfig(options = {}) {
     .reduce(
       (currentConfig, key) => {
         currentConfig[key] = options.screenshotConfig[key];
+
         return currentConfig;
       },
       merge({}, DEFAULT_SCREENSHOT_CONFIG, getConfig().screenshotConfig)
@@ -93,6 +94,7 @@ function getScreenshotConfig(options = {}) {
 
   screenshotConfig.blackout = (screenshotConfig.blackout || []);
   screenshotConfig.blackout.push('.snapshot-diff');
+
   return screenshotConfig;
 }
 
