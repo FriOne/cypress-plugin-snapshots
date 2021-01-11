@@ -34,6 +34,7 @@
     "ci:test": "jest & npm --prefix cypress run ci:test",
     "cy:open": "npm --prefix cypress run cy:open",
     "cy:run": "npm --prefix cypress run cy:run",
+    "cy:run:example": "npm --prefix cypress run cy:run -- --headed --no-exit",
     "cy:verify": "npm --prefix cypress run cy:verify",
     "jest": "jest",
     "lint": "eslint *.js",

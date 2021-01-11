@@ -1,5 +1,18 @@
   describe('toMatchImageSnapshot', () => {
 
+    it('toMatchImageSnapshot - multiple in one test', () => {
+      cy.visit('/static/stub.html')
+        .then(() => {
+          cy.get('[data-test=test]').toMatchImageSnapshot({
+            threshold: 0.1,
+          });
+
+          cy.get('[data-test=test2]').toMatchImageSnapshot({
+            threshold: 0.1,
+          });
+        });
+    });
+
     it('toMatchImageSnapshot - element', () => {
       cy.visit('/static/stub.html')
         .then(() => {
@@ -48,20 +61,6 @@
           cy.get('[data-test=test]').toMatchImageSnapshot({
             threshold: 0.1,
             name: 'screenshot with custom name'
-          });
-        });
-    });
-
-
-    it.only('toMatchImageSnapshot - multiple in one test', () => {
-      cy.visit('/static/stub.html')
-        .then(() => {
-          cy.get('[data-test=test]').toMatchImageSnapshot({
-            threshold: 0.1,
-          });
-
-          cy.get('[data-test=test2]').toMatchImageSnapshot({
-            threshold: 0.1,
           });
         });
     });
