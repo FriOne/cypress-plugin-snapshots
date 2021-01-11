@@ -13,6 +13,7 @@ const tasks = require('./src/tasks/');
 function initPlugin(on, globalConfig = {
 }) {
   const config = initConfig(globalConfig.env[CONFIG_KEY]);
+
   initServer(config);
 
   // Adding sub objects/keys to `Cypress.env` that don't exist in `cypress.json` doesn't work.

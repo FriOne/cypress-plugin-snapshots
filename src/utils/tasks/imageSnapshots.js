@@ -150,6 +150,10 @@ function compareImages(expected, actual, diffFilename, config) {
   return passed;
 }
 
+function loadImage(path) {
+  return fs.readFileSync(path, { encoding: 'base64' });
+}
+
 function saveImageSnapshot(data) {
   rimraf(data.expected.path);
   rimraf(data.diff.path);
@@ -160,6 +164,7 @@ module.exports = {
   compareImages,
   createDiffObject,
   getImageObject,
+  loadImage,
   saveImageSnapshot,
   moveActualImageToSnapshotsDirectory
 };
